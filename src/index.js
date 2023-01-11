@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CreateOfferForm from './components/CreateOfferForm';
 import EditOfferForm from './components/EditOfferForm';
+import BuyOfferForm from './components/BuyOfferForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <App />
     <CreateOfferForm/>
     <EditOfferForm/>
+    <BuyOfferForm/>
   </React.StrictMode>
 );
 
