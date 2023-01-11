@@ -25,32 +25,33 @@ function CancellationPolicyForm() {
         setErrorMessage("ERROR - can't cancel policy");
       }
     } catch (err) {
-        setMessage("");
+      setMessage("");
       setErrorMessage("ERROR - can't cancel policy");
       console.log(err);
     }
   };
 
   return (
-    <div className="App">
-      <div>
+    <>
+      <div className="PageTitle">
         <h1>Cancellation policy</h1>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={idNumber}
-          placeholder="Id number"
-          onChange={(e) => setIdNumber(e.target.value)}
-        />
-       
-        <button type="submit">Cancellation policy</button>
+      <div className="App">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            value={idNumber}
+            placeholder="Id number"
+            onChange={(e) => setIdNumber(e.target.value)}
+          />
 
-        <div className="message">{message ? <p>{message}</p> : null}</div>
-        <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+          <button type="submit">Cancellation policy</button>
 
-      </form>
-    </div>
+          <div className="message">{message ? <p>{message}</p> : null}</div>
+          <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+        </form>
+      </div>
+    </>
   );
 }
 

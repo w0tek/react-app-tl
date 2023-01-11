@@ -25,32 +25,34 @@ function BuyOfferForm() {
         setErrorMessage("ERROR - can't buy offer");
       }
     } catch (err) {
-        setMessage("");
+      setMessage("");
       setErrorMessage("ERROR - can't buy offer");
       console.log(err);
     }
   };
 
   return (
-    <div className="App">
-      <div>
+    <>
+      <div className="PageTitle">
         <h1>Buy Offer</h1>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={idNumber}
-          placeholder="Id number"
-          onChange={(e) => setIdNumber(e.target.value)}
-        />
-       
-        <button type="submit">Buy offer</button>
+      <div className="App">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            value={idNumber}
+            placeholder="Id number"
+            onChange={(e) => setIdNumber(e.target.value)}
+          />
 
-        <div className="message">{message ? <p>{message}</p> : null}</div>
-        <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+          <button type="submit">Buy offer</button>
 
-      </form>
-    </div>
+          <div className="message">{message ? <p>{message}</p> : null}</div>
+          <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+        </form>
+      </div>
+    </>
+
   );
 }
 

@@ -28,37 +28,40 @@ function PayPolicyForm() {
         setErrorMessage("ERROR - policy cannot be paid");
       }
     } catch (err) {
-        setMessage("");
+      setMessage("");
       setErrorMessage("ERROR - policy cannot be paid");
       console.log(err);
     }
   };
 
   return (
-    <div className="App">
-      <div>
+    <>
+      <div className="PageTitle">
         <h1>Pay for policy</h1>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="number"
-          value={idNumber}
-          placeholder="Id number"
-          onChange={(e) => setIdNumber(e.target.value)}
-        />
-        <input
-          type="number"
-          value={price}
-          placeholder="Price"
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <button type="submit">Pay for policy</button>
 
-        <div className="message">{message ? <p>{message}</p> : null}</div>
-        <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+      <div className="App">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="number"
+            value={idNumber}
+            placeholder="Id number"
+            onChange={(e) => setIdNumber(e.target.value)}
+          />
+          <input
+            type="number"
+            value={price}
+            placeholder="Price"
+            onChange={(e) => setPrice(e.target.value)}
+          />
+          <button type="submit">Pay for policy</button>
 
-      </form>
-    </div>
+          <div className="message">{message ? <p>{message}</p> : null}</div>
+          <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
+
+        </form>
+      </div>
+    </>
   );
 }
 
