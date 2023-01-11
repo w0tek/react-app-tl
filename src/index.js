@@ -4,12 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import CreateOfferForm from './components/CreateOfferForm';
+import EditOfferForm from './components/EditOfferForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
     <CreateOfferForm/>
+    <EditOfferForm/>
   </React.StrictMode>
 );
 
