@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import CreateOfferForm from './components/CreateOfferForm';
 import EditOfferForm from './components/EditOfferForm';
 import BuyOfferForm from './components/BuyOfferForm';
+import CancellationPolicyForm from './components/CancellationPolicyForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     <CreateOfferForm/>
     <EditOfferForm/>
     <BuyOfferForm/>
+    <CancellationPolicyForm/>
   </React.StrictMode>
 );
 
