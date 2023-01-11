@@ -1,14 +1,13 @@
 import "../index.css";
 import { useState } from "react";
 
-function CreateOfferForm() {
+function EditPolicyForm() {
   const [productName, setProductName] = useState("");
   const [risk, setRisk] = useState("");
   const [idNumber, setIdNumber] = useState("");
   const [price, setPrice] = useState("");
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,15 +27,15 @@ function CreateOfferForm() {
         setRisk("");
         setIdNumber("");
         setPrice("");
-        setMessage("SUCCESS - Offer created");
+        setMessage("SUCCESS - Policy edited");
         setErrorMessage("");
       } else {
         setMessage("");
-        setErrorMessage("ERROR - can't create offer");
+        setErrorMessage("ERROR - can't edit policy");
       }
     } catch (err) {
         setMessage("");
-      setErrorMessage("ERROR - can't create offer");
+      setErrorMessage("ERROR - can't edit policy");
       console.log(err);
     }
   };
@@ -44,7 +43,7 @@ function CreateOfferForm() {
   return (
     <div className="App">
       <div>
-        <h1>Create Offer</h1>
+        <h1>Edit Policy</h1>
       </div>
       <form onSubmit={handleSubmit}>
         <input
@@ -71,7 +70,7 @@ function CreateOfferForm() {
           placeholder="Price"
           onChange={(e) => setPrice(e.target.value)}
         />
-        <button type="submit">Create offer</button>
+        <button type="submit">Edit policy</button>
 
         <div className="message">{message ? <p>{message}</p> : null}</div>
         <div className="errorMessage">{errorMessage ? <p>{errorMessage}</p> : null}</div>
@@ -81,4 +80,4 @@ function CreateOfferForm() {
   );
 }
 
-export default CreateOfferForm;
+export default EditPolicyForm;

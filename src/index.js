@@ -7,6 +7,7 @@ import CreateOfferForm from './components/CreateOfferForm';
 import EditOfferForm from './components/EditOfferForm';
 import BuyOfferForm from './components/BuyOfferForm';
 import CancellationPolicyForm from './components/CancellationPolicyForm';
+import EditPolicyForm from './components/EditPolicyForm';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     <EditOfferForm/>
     <BuyOfferForm/>
     <CancellationPolicyForm/>
+    <EditPolicyForm/>
   </React.StrictMode>
 );
 
