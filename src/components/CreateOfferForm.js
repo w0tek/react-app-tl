@@ -5,6 +5,7 @@ function CreateOfferForm() {
   const [productName, setProductName] = useState("");
   const [risk, setRisk] = useState("");
   const [idNumber, setIdNumber] = useState("");
+  const [price, setPrice] = useState("");
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,6 +19,7 @@ function CreateOfferForm() {
           productName: productName,
           risk: risk,
           idNumber: idNumber,
+          price: price,
         }),
       });
       let resJson = await res.json();
@@ -25,6 +27,7 @@ function CreateOfferForm() {
         setProductName("");
         setRisk("");
         setIdNumber("");
+        setPrice("");
         setMessage("SUCCESS - Offer created");
         setErrorMessage("");
       } else {
@@ -42,7 +45,7 @@ function CreateOfferForm() {
     <div className="App">
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
+          type="number"
           value={idNumber}
           placeholder="Id number"
           onChange={(e) => setIdNumber(e.target.value)}
@@ -59,7 +62,12 @@ function CreateOfferForm() {
           placeholder="risk"
           onChange={(e) => setRisk(e.target.value)}
         />
-
+        <input
+          type="number"
+          value={price}
+          placeholder="Price"
+          onChange={(e) => setPrice(e.target.value)}
+        />
         <button type="submit">Create offer</button>
 
         <div className="message">{message ? <p>{message}</p> : null}</div>
