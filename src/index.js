@@ -3,23 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CreateOfferForm from './components/CreateOfferForm';
-import EditOfferForm from './components/EditOfferForm';
-import BuyOfferForm from './components/BuyOfferForm';
-import CancellationPolicyForm from './components/CancellationPolicyForm';
-import EditPolicyForm from './components/EditPolicyForm';
-import PayPolicyForm from './components/PayPolicyForm';
+import {BrowserRouter} from "react-router-dom"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <CreateOfferForm/>
-    <EditOfferForm/>
-    <BuyOfferForm/>
-    <CancellationPolicyForm/>
-    <EditPolicyForm/>
-    <PayPolicyForm/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
