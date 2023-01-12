@@ -2,10 +2,11 @@ import "../index.css";
 import { useState } from "react";
 
 function CreateOfferForm() {
-  const [productName, setProductName] = useState("");
-  const [risk, setRisk] = useState("");
-  const [idNumber, setIdNumber] = useState("");
-  const [price, setPrice] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [houseArea, setHouseArea] = useState("");
+  const [roofType, setRoofType] = useState("");
+  const [startDate, setStartDate] = useState("");
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -16,18 +17,20 @@ function CreateOfferForm() {
       let res = await fetch("https://httpbin.org/post", {
         method: "POST",
         body: JSON.stringify({
-          productName: productName,
-          risk: risk,
-          idNumber: idNumber,
-          price: price,
+          firstName: firstName,
+          lastName: lastName,
+          houseArea: houseArea,
+          roofType: roofType,
+          startDate: startDate,
         }),
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        setProductName("");
-        setRisk("");
-        setIdNumber("");
-        setPrice("");
+        setFirstName("");
+        setLastName("");
+        setHouseArea("");
+        setRoofType("");
+        setStartDate("");
         setMessage("SUCCESS - Offer created");
         setErrorMessage("");
       } else {
@@ -49,28 +52,36 @@ function CreateOfferForm() {
       <div className="App">
         <form onSubmit={handleSubmit}>
           <input
-            type="number"
-            value={idNumber}
-            placeholder="Id number"
-            onChange={(e) => setIdNumber(e.target.value)}
+            type="text"
+            value={firstName}
+            placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)}
           />
           <input
             type="text"
-            value={productName}
-            placeholder="productName"
-            onChange={(e) => setProductName(e.target.value)}
-          />
-          <input
-            type="text"
-            value={risk}
-            placeholder="risk"
-            onChange={(e) => setRisk(e.target.value)}
+            value={lastName}
+            placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)}
           />
           <input
             type="number"
-            value={price}
-            placeholder="Price"
-            onChange={(e) => setPrice(e.target.value)}
+            value={houseArea}
+            placeholder="House Area"
+            onChange={(e) => setHouseArea(e.target.value)}
+          />
+          <input
+            type="text"
+            value={roofType}
+            placeholder="Roof Type"
+            onChange={(e) => setRoofType(e.target.value)}
+          />
+          <input
+            type="text"
+            value={startDate}
+            placeholder="Start Date"
+            onFocus={(e) => (e.target.type = "date")}
+            onBlur={(e) => (e.target.type = "text")}
+            onChange={(e) => setStartDate(e.target.value)}
           />
           <button type="submit">Create offer</button>
 
