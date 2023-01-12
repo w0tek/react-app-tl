@@ -17,19 +17,19 @@ function App() {
         <li>
             <Link to="/offerOverview">Offer overview</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/policyOverview">Policy overview</Link>
-          </li>
+          </li> */}
           <li>
             <Link to="/createOffer">Create offer</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/editOffer">Edit offer</Link>
           </li>
           <li>
             <Link to="/buyOffer">Buy offer</Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/cancellationPolicy">Cancellation policy</Link>
           </li>
           <li>
@@ -37,7 +37,7 @@ function App() {
           </li>
           <li>
             <Link to="/payPolicy">Pay for policy</Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
 
