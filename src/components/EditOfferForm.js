@@ -1,9 +1,13 @@
 import "../index.css";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import mockOffer1 from '../mocks/getOffer1.json';
+import mockOffer2 from '../mocks/getOffer2.json';
+import mockOffer3 from '../mocks/getOffer3.json';
+import mockOffer4 from '../mocks/getOffer4.json';
 
 function EditOfferForm() {
-  const [idNumber, setIdNumber] = useState("");
+  const [id, setId] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [houseArea, setHouseArea] = useState("");
@@ -15,19 +19,59 @@ function EditOfferForm() {
   const location = useLocation()
   const params = new URLSearchParams(location.search)
 
+  const fillMockData = () => {
+    console.log("Fill mock data");
+    var id = params.get("id");
+    var data = mockOffer1;
+    console.log("id = " + id)
+    switch (""+id) {
+      case "1":
+        data = mockOffer1;
+        break;
+      case "2":
+        data = mockOffer2;
+        break;
+      case "3":
+        data = mockOffer3;
+        break;
+      case "4":
+        data = mockOffer4;
+        break;
+      default:
+        data = mockOffer1;
+        break;
+    }
+    setId(data.id);
+    setFirstName(data.firstName);
+    setLastName(data.lastName);
+    setHouseArea(data.houseArea);
+    setRoofType(data.roofType);
+    setStartDate(data.startDate);
+  }
+
   const fetchData = () => {
-    fetch("https://jsonplaceholder.typicode.com/todos/1" + "/" + params.get("id"))
+    try {
+      fetch("https://jsonplaceholder.typicode.com/todos/1" + "/" + params.get("id"))
       .then(response => {
         return response.json()
       })
       .then(data => {
-        setIdNumber(data.idNumber);
+        setId(data.id);
         setFirstName(data.firstName);
         setLastName(data.lastName);
         setHouseArea(data.houseArea);
         setRoofType(data.roofType);
         setStartDate(data.startDate);
       })
+    } catch (err) {
+      setMessage("");
+      setErrorMessage("ERROR - can't edit offer");
+      console.log(err);
+    }
+
+
+    // mock data
+    fillMockData();
   }
 
   useEffect(() => {
@@ -36,11 +80,12 @@ function EditOfferForm() {
 
   let handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       let res = await fetch("https://httpbin.org/post", {
         method: "POST",
         body: JSON.stringify({
-          idNumber: idNumber,
+          id: id,
           firstName: firstName,
           lastName: lastName,
           houseArea: houseArea,
@@ -50,7 +95,7 @@ function EditOfferForm() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        setIdNumber("");
+        setId("");
         setFirstName("");
         setLastName("");
         setHouseArea("");
@@ -79,10 +124,10 @@ function EditOfferForm() {
         <form onSubmit={handleSubmit}>
           <input
             type="number"
-            disabled="true"
-            value={idNumber}
+            disabled
+            value={id}
             placeholder="Id number"
-            onChange={(e) => setIdNumber(e.target.value)}
+            onChange={(e) => setId(e.target.value)}
           />
           <input
             type="text"
