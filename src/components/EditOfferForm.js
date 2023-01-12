@@ -20,7 +20,7 @@ function EditOfferForm() {
   const params = new URLSearchParams(location.search)
 
   const fillMockData = () => {
-    console.log("Fill mock data");
+    console.log("Filled with mock data");
     var id = params.get("id");
     var data = mockOffer1;
     console.log("id = " + id)
@@ -68,14 +68,11 @@ function EditOfferForm() {
       setErrorMessage("ERROR - can't edit offer");
       console.log(err);
     }
-
-
-    // mock data
-    fillMockData();
   }
 
   useEffect(() => {
-    fetchData();
+    //fetchData();
+    fillMockData();
   }, [])
 
   let handleSubmit = async (e) => {

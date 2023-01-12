@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react"
 import Table from "./Table"
 import { useNavigate } from "react-router-dom";
+import mockOffers from '../mocks/getOffers.json';
 
 
 const OfferOverview = () => {
     const [data, setData] = useState([])
 
+
+    const fillMockData = () => {
+        console.log("Filled with mock data");
+        setData(mockOffers);
+      }
 
     const fetchData = () => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -15,10 +21,13 @@ const OfferOverview = () => {
             .then(data => {
                 setData(data)
             })
+            
     }
 
     useEffect(() => {
-        fetchData()
+        //fetchData()
+        // mock data
+        fillMockData();
     }, [])
 
 

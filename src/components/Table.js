@@ -16,22 +16,22 @@ export default function Table({ tbodyData }) {
                     return <tr key={index} >
                         <td>
                             {
-                                row.id
+                                row.firstName
                             }
                         </td>
                         <td>
                             {
-                                row.name
+                                row.lastName
                             }
                         </td>
                         <td>
                             {
-                                row.username
+                                row.startDate
                             }
                         </td>
                         <td>
                             {
-                                row.email
+                                row.price
                             }
                         </td>
                         <td>
