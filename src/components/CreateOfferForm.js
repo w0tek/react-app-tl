@@ -13,8 +13,8 @@ function CreateOfferForm() {
 
 
   let navigate = useNavigate();
-  const routeChange = () => {
-      let path = `/offerDetails`;
+  const routeChange = (id) => {
+      let path = `/offerDetails` + "?id="+ id;
       navigate(path);
   }
 
@@ -33,7 +33,9 @@ function CreateOfferForm() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        routeChange();
+        //let id = res.formData.id;
+        let id = 1;
+        routeChange(id);
       } else {
         setMessage("");
         setErrorMessage("ERROR - can't create offer");

@@ -89,7 +89,7 @@ function EditOfferForm() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        routeChange("/offerDetails");
+        routeChange("/offerOverview");
         setErrorMessage("");
       } else {
         setMessage("");
