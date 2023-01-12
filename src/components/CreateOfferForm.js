@@ -1,5 +1,6 @@
 import "../index.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreateOfferForm() {
   const [firstName, setFirstName] = useState("");
@@ -10,6 +11,12 @@ function CreateOfferForm() {
   const [message, setMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+      let path = `/offerDetails`;
+      navigate(path);
+  }
 
   let handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,13 +33,7 @@ function CreateOfferForm() {
       });
       let resJson = await res.json();
       if (res.status === 200) {
-        setFirstName("");
-        setLastName("");
-        setHouseArea("");
-        setRoofType("");
-        setStartDate("");
-        setMessage("SUCCESS - Offer created");
-        setErrorMessage("");
+        routeChange();
       } else {
         setMessage("");
         setErrorMessage("ERROR - can't create offer");

@@ -8,6 +8,7 @@ import EditPolicyForm from "./components/EditPolicyForm";
 import OfferOverview from "./components/OfferOverview";
 import PayPolicyForm from "./components/PayPolicyForm";
 import PolicyOverview from "./components/PolicyOverview";
+import OfferDetails from "./components/OfferDetails";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
           </li> */}
           {/* <li>
             <Link to="/createOffer">Create offer</Link>
-          </li> */}
+          </li>*/}
           {/* <li>
             <Link to="/editOffer">Edit offer</Link>
           </li>
@@ -50,6 +51,7 @@ function App() {
         <Route path="/payPolicy" element={<PayPolicyForm />}/>
         <Route path="/policyOverview" element={<PolicyOverview />}/>
         <Route path="/offerOverview" element={<OfferOverview />}/>
+        <Route path="/offerDetails" element={<OfferDetails />}/>
 
       </Routes>
     </>
