@@ -1,5 +1,13 @@
+.ButtonCenter {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 .PageTitle {
-  display: flex;
+  display: ce;
   justify-content: center;
 }
 .App {

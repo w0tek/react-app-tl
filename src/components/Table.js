@@ -1,4 +1,4 @@
-export default function PolicyTable({ tbodyData }) {
+export default function Table({ tbodyData }) {
     return (
         <table>
             <tbody>
