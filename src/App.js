@@ -5,6 +5,7 @@ import CancellationPolicyForm from "./components/CancellationPolicyForm";
 import CreateOfferForm from "./components/CreateOfferForm";
 import EditOfferForm from "./components/EditOfferForm";
 import EditPolicyForm from "./components/EditPolicyForm";
+import OfferOverview from "./components/OfferOverview";
 import PayPolicyForm from "./components/PayPolicyForm";
 import PolicyOverview from "./components/PolicyOverview";
 
@@ -13,6 +14,9 @@ function App() {
     <>
       <nav>
         <ul>
+        <li>
+            <Link to="/offerOverview">Offer overview</Link>
+          </li>
           <li>
             <Link to="/policyOverview">Policy overview</Link>
           </li>
@@ -45,6 +49,7 @@ function App() {
         <Route path="/editPolicy" element={<EditPolicyForm />}/>
         <Route path="/payPolicy" element={<PayPolicyForm />}/>
         <Route path="/policyOverview" element={<PolicyOverview />}/>
+        <Route path="/offerOverview" element={<OfferOverview />}/>
 
       </Routes>
     </>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import Table from "./Table"
 
-const PolicyOverview = () => {
+const OfferOverview = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
@@ -21,7 +21,7 @@ const PolicyOverview = () => {
     return (
         <>
             <div className="PageTitle">
-                <h1>Policy Overview</h1>
+                <h1>Offer Overview</h1>
             </div>
             <button onClick={fetchData}>Refresh policy</button>
             <div className="App">
@@ -34,4 +34,4 @@ const PolicyOverview = () => {
     )
 }
 
-export default PolicyOverview
+export default OfferOverview
