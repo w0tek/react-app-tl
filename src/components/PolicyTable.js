@@ -1,10 +1,8 @@
 export default function PolicyTable({ tbodyData }) {
-    console.log(tbodyData);
     return (
         <table>
             <tbody>
                 {tbodyData.map((row, index) => {
-                    console.log(row);
                     return <tr key={index}>
                         <td>
                             {
