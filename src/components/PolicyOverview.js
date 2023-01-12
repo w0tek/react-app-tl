@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
+import PolicyTable from "./PolicyTable"
 
 const PolicyOverview = () => {
-    const [users, setUsers] = useState([])
+    const [data, setData] = useState([])
 
     const fetchData = () => {
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -9,7 +10,7 @@ const PolicyOverview = () => {
                 return response.json()
             })
             .then(data => {
-                setUsers(data)
+                setData(data)
             })
     }
 
@@ -24,15 +25,8 @@ const PolicyOverview = () => {
             </div>
             <button onClick={fetchData}>Refresh policy</button>
             <div className="App">
-
                 <div>
-                    {users.length > 0 && (
-                        <ul>
-                            {users.map(user => (
-                                <li key={user.id}>{user.name}</li>
-                            ))}
-                        </ul>
-                    )}
+                    {<PolicyTable tbodyData={data}/> }
                 </div>
             </div>
         </>
