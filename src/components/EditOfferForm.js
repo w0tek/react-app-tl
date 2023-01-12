@@ -79,6 +79,7 @@ function EditOfferForm() {
         <form onSubmit={handleSubmit}>
           <input
             type="number"
+            disabled="true"
             value={idNumber}
             placeholder="Id number"
             onChange={(e) => setIdNumber(e.target.value)}
