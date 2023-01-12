@@ -20,9 +20,9 @@ function App() {
           {/* <li>
             <Link to="/policyOverview">Policy overview</Link>
           </li> */}
-          <li>
+          {/* <li>
             <Link to="/createOffer">Create offer</Link>
-          </li>
+          </li> */}
           {/* <li>
             <Link to="/editOffer">Edit offer</Link>
           </li>
